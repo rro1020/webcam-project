@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Get User Media - example 1</title>
+    <title>Get User Media - Photo</title>
 </head>
 <body>
+<button id="take">Take a photo</button><br />
 <video id="v"></video>
+<canvas id="canvas" style="display:none;"></canvas>
+<img src="http://placehold.it/300&text=Your%20image%20here%20..." id="photo" alt="photo">
 <script>
     ;(function(){
         function userMedia(){
@@ -19,26 +22,44 @@
 
         // Now we can use it
         if( userMedia() ){
-
+            var videoPlaying = false;
             var constraints = {
                 video: true,
                 audio:false
             };
+            var video = document.getElementById('v');
 
             var media = navigator.getUserMedia(constraints, function(stream){
-                var v = document.getElementById('v');
+
                 // URL Object is different in WebKit
                 var url = window.URL || window.webkitURL;
 
                 // create the url and set the source of the video element
-                v.src = url ? url.createObjectURL(stream) : stream;
+                video.src = url ? url.createObjectURL(stream) : stream;
 
                 // Start the video
-                v.play();
+                video.play();
+                videoPlaying  = true;
             }, function(error){
                 console.log("ERROR");
                 console.log(error);
             });
+
+
+            // Listen for user click on the "take a photo" button
+            document.getElementById('take').addEventListener('click', function(){
+                if (videoPlaying){
+                    var canvas = document.getElementById('canvas');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    canvas.getContext('2d').drawImage(video, 0, 0);
+                    var data = canvas.toDataURL('image/webp');
+                    document.getElementById('photo').setAttribute('src', data);
+                }
+            }, false);
+
+
+
         } else {
             console.log("KO");
         }
