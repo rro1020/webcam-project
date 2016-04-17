@@ -11,12 +11,12 @@
 } 
 
 body {
-	background-color: "#440b00";
+	background-color: #440b00;
 }
 
 p {
-	color: "f39714";
-	background-color: "#963c08"; 
+	color: #f39714;
+	background-color: #963c08; 
 	font-size: 16px;
 }
 
@@ -28,7 +28,7 @@ h1 {
 .demo-title {
   position: absolute;
   width: 100%;
-  background: "#440b00";
+  background: #440b00;
   z-index: 2;
   padding: .7em 0;
 }
