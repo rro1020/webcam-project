@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Virtual Changing Room</title>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://rro1020.github.io/webcam-project/js/tracking-min.js"></script>
+    <script src="https://rro1020.github.io/webcam-project/js/face-min.js"></script>
+    <!-- script src="../webcam-project/js/app.js"></script -->
+</head>
+<body>
+<!-- button id="take">Take a photo</button><br />
+<video id="v"></video>
+<canvas id="canvas" style="display:none;"></canvas>
+<img src="https://placehold.it/300&text=Your%20image%20here%20..." id="photo" alt="photo">
+<!-- svg width="720" height="120">
+  <circle cx="40" cy="60" r="10"></circle>
+  <circle cx="80" cy="60" r="10"></circle>
+  <circle cx="120" cy="60" r="10"></circle>
+</svg -->
+<!-- script>
+        ;(function(){
+        function userMedia(){
+            return navigator.getUserMedia = navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia || null;
+
+        }
+
+
+        // Now we can use it
+        if( userMedia() ){
+            var videoPlaying = false;
+            var constraints = {
+                video: true,
+                audio:false
+            };
+            var video = document.getElementById('v');
+
+            var media = navigator.getUserMedia(constraints, function(stream){
+
+                // URL Object is different in WebKit
+                var url = window.URL || window.webkitURL;
+
+                // create the url and set the source of the video element
+                video.src = url ? url.createObjectURL(stream) : stream;
+
+                // Start the video
+                video.play();
+                videoPlaying  = true;
+                
+                /*
+                var circle = d3.selectAll("circle"); 
+    		circle.style("fill", "red"); 
+    		circle.attr("r", 30); 
+    		*/ 
+    		var canvas = document.getElementById('canvas'); 
+    		var context = canvas.getContext('2d'); 
+    		
+    		var tracker = new tracking.ObjectTracker('face');
+      		tracker.setInitialScale(4);
+      		tracker.setStepSize(2);
+      		tracker.setEdgesDensity(0.1);
+      		tracking.track('#video', tracker, { camera: true });
+      		tracker.on('track', function(event) {
+        		context.clearRect(0, 0, canvas.width, canvas.height);
+        		event.data.forEach(function(rect) {
+          			context.strokeStyle = '#a64ceb';
+          			context.strokeRect(rect.x, rect.y, rect.width, rect.height);
+          			context.font = '11px Helvetica';
+          			context.fillStyle = "#fff";
+          			context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
+          			context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
+        		});
+      	    });
+                
+            }, function(error){
+                console.log("ERROR");
+                console.log(error);
+            });
+
+
+            // Listen for user click on the "take a photo" button
+			/*
+            document.getElementById('take').addEventListener('click', function(){
+                if (videoPlaying){
+                    var canvas = document.getElementById('canvas');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    canvas.getContext('2d').drawImage(video, 0, 0);
+                    var data = canvas.toDataURL('image/webp');
+                    document.getElementById('photo').setAttribute('src', data);
+                }
+            }, false);
+      */
+      
+
+        } else {
+            console.log("KO");
+        }
+    })();
+    
+
+    
+</script>
+</body>
+</html> 
