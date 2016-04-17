@@ -1,10 +1,10 @@
 #jumbotron{
 	background-image: url(https://rro1020.github.io/webcam-project/pics/dressingroom-background.png);
-	width: 100%;
+	width: 100% 100%;
 }
 
 #header{
-	width: 100%;
+	width: 100% 100%;
 	padding: 0 0 40%;
 	margin-left: 5px; 
 	margin-right: 5px;
