@@ -17,7 +17,8 @@
   }
   </style>
 </head>
-<body>
+<body> 
+  <img id = "tshirt" src = "http://inikweb.com/wp-content/uploads/2015/02/t473gold.jpg" />
   <div class="demo-title">
     <p><a href="http://trackingjs.com" target="_parent">tracking.js</a> － get user's webcam and detect faces</p>
   </div>
@@ -34,7 +35,8 @@
       var video = document.getElementById('video');
       var canvas = document.getElementById('canvas');
       var context = canvas.getContext('2d');
-      var tracker = new tracking.ObjectTracker('face');
+      var tracker = new tracking.ObjectTracker('face'); 
+      var img = document.getElementById('tshirt'); 
       tracker.setInitialScale(4);
       tracker.setStepSize(2);
       tracker.setEdgesDensity(0.1);
@@ -50,9 +52,11 @@
           context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
           context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22); 
           
-          context.lineWidth = 5; 
-          context.fillStyle = "#FFF000";
-          context.fillRect(rect.x - rect.width/2, rect.y + 1.25 * rect.height, rect.x + 1.5 * rect.width, rect.y + 3.25 * rect.height); 
+          //context.lineWidth = 5; 
+          //context.fillStyle = "#FFF000";
+          //context.fillRect(rect.x - rect.width/2, rect.y + 1.25 * rect.height, rect.x + 1.5 * rect.width, rect.y + 3.25 * rect.height); 
+          context.drawImage(img, rect.x - rect.width/2, rect.y + 1.25 * rect.height); 
+          
         });
       });
       
