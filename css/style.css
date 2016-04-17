@@ -28,7 +28,7 @@ h1 {
 .demo-title {
   position: absolute;
   width: 100%;
-  background: #2e2f33;
+  background: "440b00";
   z-index: 2;
   padding: .7em 0;
 }
