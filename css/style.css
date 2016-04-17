@@ -16,7 +16,8 @@ body {
 
 p {
 	color: "f39714";
-	background-color: "963c08";
+	background-color: "963c08"; 
+	font-size: 16px;
 }
 
 h1 {
