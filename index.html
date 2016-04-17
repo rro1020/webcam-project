@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Virtual Shopping Closet</title>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="../webcam-project/js/app.js"></script>
+    <!-- script src="../webcam-project/js/app.js"></script -->
 </head>
 <body>
 <button id="take">Take a photo</button><br />
@@ -16,6 +16,70 @@
   <circle cx="80" cy="60" r="10"></circle>
   <circle cx="120" cy="60" r="10"></circle>
 </svg>
+<script>
+        ;(function(){
+        function userMedia(){
+            return navigator.getUserMedia = navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia || null;
 
+        }
+
+
+        // Now we can use it
+        if( userMedia() ){
+            var videoPlaying = false;
+            var constraints = {
+                video: true,
+                audio:false
+            };
+            var video = document.getElementById('v');
+
+            var media = navigator.getUserMedia(constraints, function(stream){
+
+                // URL Object is different in WebKit
+                var url = window.URL || window.webkitURL;
+
+                // create the url and set the source of the video element
+                video.src = url ? url.createObjectURL(stream) : stream;
+
+                // Start the video
+                video.play();
+                videoPlaying  = true;
+                
+                var circle = d3.selectAll("circle"); 
+    		circle.style("fill", "red"); 
+    		circle.attr("r", 30); 
+                
+            }, function(error){
+                console.log("ERROR");
+                console.log(error);
+            });
+
+
+            // Listen for user click on the "take a photo" button
+			/*
+            document.getElementById('take').addEventListener('click', function(){
+                if (videoPlaying){
+                    var canvas = document.getElementById('canvas');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    canvas.getContext('2d').drawImage(video, 0, 0);
+                    var data = canvas.toDataURL('image/webp');
+                    document.getElementById('photo').setAttribute('src', data);
+                }
+            }, false);
+
+*/
+
+        } else {
+            console.log("KO");
+        }
+    })();
+    
+
+    
+</script>
 </body>
 </html>
