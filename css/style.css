@@ -20,6 +20,10 @@ p {
 	font-size: 20px;
 }
 
+table{
+	background-color: #963c08; 
+}
+
 h1 {
 	color: white; 
 	font-family: sans-serif;
