@@ -1,5 +1,9 @@
+#jumbotron{
+	background-image: url(http://rro1020.github.io/webcam-project/pics/dressingroom-background.png);
+	background-repeat: no-repeat;
+}
+
 #header{
-	background-image: url(https://retailproblems.files.wordpress.com/2012/11/fitting-room1.jpg); 
 	background-repeat: no-repeat;
 	text-align: center;
 }
