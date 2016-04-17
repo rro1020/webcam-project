@@ -5,10 +5,18 @@
     <title>The Dressing Room</title>
     <link href="https://rro1020.github.io/webcam-project/css/style.css" rel = "stylesheet" type = "text/css" />
     <!-- script src="../webcam-project/js/app.js"></script -->
+    <script>
+        function getWidth(){
+            return window.innerWidth; 
+        }
+         function getHeight(){
+            return window.innerHeight; 
+        }
+    </script>
 </head>
 <body>
     <div id = "header">
-        <img src = "https://rro1020.github.io/webcam-project/pics/dressingroom-background.png" /> 
+        <img src = "https://rro1020.github.io/webcam-project/pics/dressingroom-background.png" width = getWidth() height = getHeight()/> 
     </div>
     <h1>Welcome To The Dressing Room</h1>
     <p>Please select an outfit you would like to try on.</p>
