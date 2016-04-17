@@ -1,5 +1,7 @@
-#header {
+#header{
 	background-color: black; 
+	text-align: center;
+	padding: 10px;
 }
 
 h1 {
