@@ -7,6 +7,7 @@
 
   <script src="https://rro1020.github.io/webcam-project/js/tracking-min.js"></script>
   <script src="https://rro1020.github.io/webcam-project/js/face-min.js"></script>
+  <link href="https://rro1020.github.io/webcam-project/css/style.css" rel = "stylesheet" type = "text/css" />
   <!-- script src="../../dat-gui/build/dat.gui.min.js"></script>
   <script src="assets/stats.min.js"></script -->
 
@@ -18,7 +19,7 @@
   </style>
 </head>
 <body> 
-  <img id = "tshirt" src = "https://rro1020.github.io/webcam-project/pics/girlscout.png" width = "0" height = "0"/>
+  <img id = "vest" src = "https://rro1020.github.io/webcam-project/pics/girlscout.png" width = "0" height = "0"/>
   <div class="demo-title">
     <p><a href="http://trackingjs.com" target="_parent">tracking.js</a> － get user's webcam and detect faces</p>
   </div>
@@ -36,7 +37,7 @@
       var canvas = document.getElementById('canvas');
       var context = canvas.getContext('2d');
       var tracker = new tracking.ObjectTracker('face'); 
-      var img = document.getElementById('tshirt'); 
+      var img = document.getElementById('vest'); 
       tracker.setInitialScale(4);
       tracker.setStepSize(2);
       tracker.setEdgesDensity(0.1);
