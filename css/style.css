@@ -1,3 +1,13 @@
+#header {
+	background-color: black; 
+	
+}
+
+h1 {
+	color: white; 
+	font-family: sans-serif;
+}
+
 #container{
 	color: "red"; 
 }
