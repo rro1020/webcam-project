@@ -39,12 +39,6 @@ h1 {
   padding: .7em 0;
 }
 
-.demo-title a {
-  color: #fff;
-  border-bottom: 20px dotted #a64ceb;
-  text-decoration: none;
-}
-
 .demo-title p {
   color: #fff;
   text-align: center;
