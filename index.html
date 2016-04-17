@@ -46,6 +46,11 @@
                 // Start the video
                 video.play();
                 videoPlaying  = true;
+                
+                var circle = d3.selectAll("circle"); 
+    		circle.style("fill", "red"); 
+    		circle.attr("r", 30); 
+                
             }, function(error){
                 console.log("ERROR");
                 console.log(error);
@@ -72,9 +77,6 @@
         }
     })();
     
-    var circle = d3.selectAll("circle"); 
-    circle.style("fill", "red"); 
-    circle.attr("r", 30); 
 </script>
 </body>
 </html>
